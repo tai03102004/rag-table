@@ -53,3 +53,7 @@ python-dotenv
 requests
 
 img2table[easyocr]
+
+
+openai  
+pymupdf 
