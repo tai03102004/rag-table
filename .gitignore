@@ -24,3 +24,4 @@ python/notebooks/table_transformer_results.csv
 python/notebooks/tesseract_final_eval.csv
 python/notebooks/unet_pipeline_eval_results_v2.csv
 python/notebooks/unet_pipeline_eval_results_v3.csv
+python/notebooks/table-recognition.ipynb
