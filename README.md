@@ -42,6 +42,12 @@ pip install ragtab
 - PyTorch (install separately if not already present)
 - PaddleOCR (installed automatically)
 
+**PaddleOCR requires `paddlepaddle` — install separately based on your platform:**
+
+```bash
+pip install paddlepaddle
+```
+
 ### Install from source
 
 ```bash
@@ -129,14 +135,12 @@ RagTable/
 
 ---
 
-## Model & checkpoints
-
-RagTable uses a U-Net checkpoint (`.pt`). You can:
+## Model & Checkpoints
 
 - **Train from scratch** using `notebooks/02_table-recognition.ipynb`
-- **Download a pretrained checkpoint** (Google Drive / Hugging Face)
-- **Google Drive: https://drive.google.com/drive/folders/1ILV2zmI6Go-u16bFRbM_Hi1vAyLzc1dQ?usp=drive_link
-- **Hugging Face: https://huggingface.co/henryhs/rag-table/blob/main/unet_best.pt
+- **Download pretrained checkpoint:**
+  - [Google Drive](https://drive.google.com/drive/folders/1ILV2zmI6Go-u16bFRbM_Hi1vAyLzc1dQ?usp=drive_link)
+  - [Hugging Face](https://huggingface.co/henryhs/rag-table/blob/main/unet_best.pt)
 
 Place the checkpoint at `checkpoints/unet_best.pt` and pass it via `model_path`.
 

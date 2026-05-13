@@ -2,13 +2,13 @@ from PIL import Image
 from paddleocr import PaddleOCR
 import torchvision.transforms.functional as TF
 from dataclasses import dataclass
-
 @dataclass
 class Cell:
     row_idx: int
     col_idx: int
     x: int; y: int; w: int; h: int
     is_span: bool = False
+    col_span: int = 1
     text: str = ""
 
 ocr = PaddleOCR(

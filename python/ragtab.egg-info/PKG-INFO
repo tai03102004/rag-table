@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: ragtab
-Version: 0.1.1
+Version: 0.1.2
 Summary: Trích xuất bảng từ ảnh/PDF thành Markdown cho RAG pipeline
 Author-email: Dinh Duc Tai <dinhductai2004@gmail.com>
 License: MIT
