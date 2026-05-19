@@ -20,20 +20,23 @@ RagTable converts table images into structured Markdown using a segmentation mod
 
 ## Installation
 
+### CPU (default)
+
 ```bash
 pip install ragtab
 ```
 
-**Requirements:**
-- Python ≥ 3.10
-- PyTorch (install separately if not already present)
-- PaddleOCR (installed automatically)
+This installs everything needed: PyTorch, PaddleOCR, PaddlePaddle (CPU), and other dependencies.
 
-**PaddleOCR requires `paddlepaddle` — install separately based on your platform:**
+### GPU (NVIDIA CUDA)
 
 ```bash
-pip install paddlepaddle
+pip install ragtab[gpu]
 ```
+
+This replaces `paddlepaddle` (CPU) with `paddlepaddle-gpu` for ~3-5× faster OCR inference on NVIDIA GPUs.
+
+**Requirements:** Python ≥ 3.10
 
 ### Install from source
 
@@ -50,11 +53,9 @@ pip install -e .
 ```python
 from ragtab.pipeline import extract_table
 
-markdown, cells = extract_table(
-    "table.png",
-    model_path="checkpoints/unet_best.pt",
-    ocr_engine="paddleocr"
-)
+# First call: auto-downloads model from HuggingFace (~76MB, one-time)
+# Subsequent calls: loads from local cache
+markdown, cells = extract_table("table.png")
 
 print(markdown)
 ```

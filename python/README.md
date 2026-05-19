@@ -20,20 +20,23 @@ RagTable converts table images into structured Markdown using a segmentation mod
 
 ## Installation
 
+### CPU (default)
+
 ```bash
 pip install ragtab
 ```
 
-**Requirements:**
-- Python ≥ 3.10
-- PyTorch (install separately if not already present)
-- PaddleOCR (installed automatically)
+This installs everything needed: PyTorch, PaddleOCR, PaddlePaddle (CPU), and other dependencies.
 
-**PaddleOCR requires `paddlepaddle` — install separately based on your platform:**
+### GPU (NVIDIA CUDA)
 
 ```bash
-pip install paddlepaddle
+pip install ragtab[gpu]
 ```
+
+This replaces `paddlepaddle` (CPU) with `paddlepaddle-gpu` for ~3-5× faster OCR inference on NVIDIA GPUs.
+
+**Requirements:** Python ≥ 3.10
 
 ### Install from source
 
@@ -102,14 +105,30 @@ Each stage is independently accessible so you can customize or swap components.
 
 ---
 
-## Model & Checkpoints
+### Custom checkpoint
 
-- **Train from scratch** using `notebooks/02_table-recognition.ipynb`
-- **Download pretrained checkpoint:**
-  - [Google Drive](https://drive.google.com/drive/folders/1ILV2zmI6Go-u16bFRbM_Hi1vAyLzc1dQ?usp=drive_link)
-  - [Hugging Face](https://huggingface.co/henryhs/rag-table/blob/main/unet_best.pt)
+If you've trained your own model or want to use a different checkpoint:
 
-Place the checkpoint at `checkpoints/unet_best.pt` and pass it via `model_path`.
+```python
+markdown, cells = extract_table("table.png", model_path="path/to/your_model.pt")
+```
+
+---
+
+### Manual download (optional)
+
+- [Hugging Face](https://huggingface.co/henryhs/rag-table/blob/main/unet_best.pt) (used by auto-download)
+- [Google Drive](https://drive.google.com/drive/folders/1ILV2zmI6Go-u16bFRbM_Hi1vAyLzc1dQ?usp=drive_link) (mirror)
+
+---
+
+### Cache location
+
+By default, the model is cached at `~/.cache/ragtab/`. Override via environment variable:
+
+```bash
+export RAGTAB_CACHE_DIR=/path/to/custom/cache
+```
 
 ---
 
