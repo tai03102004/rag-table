@@ -3,12 +3,17 @@ torchvision
 numpy
 opencv-python
 Pillow
-paddleocr
+paddlepaddle>=3.0
+paddleocr>=3.0
 scipy
 matplotlib
 timm
+tqdm
 
 [dev]
 pytest
 build
 twine
+
+[gpu]
+paddlepaddle-gpu>=3.0
