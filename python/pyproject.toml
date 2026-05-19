@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ragtab"
-version = "0.1.2"
+version = "0.1.3"
 description = "Trích xuất bảng từ ảnh/PDF thành Markdown cho RAG pipeline"
 readme = "README.md"
 license = {text = "MIT"}
